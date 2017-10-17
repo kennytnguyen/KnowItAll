@@ -1,0 +1,50 @@
+// Backend API user JSON Representation:
+{
+	userId: 0,
+	username: "kdieu",
+	firstName: "Kevin",
+	lastName: "Dieu",
+	email: "kdieu@usc.edu"
+}
+// Backend API’s Entity JSON Representation:
+{
+	entityId: 0, // integer, the entity's ID in our database
+	entityType: "POLL", // string: "POLL", "RATING", "QUESTION"
+	owner: "kdieu", // string: user's username who created this entity
+	subject: "How good is USC's football team?"// string: the subject of the entity
+	timeLimit: 2, // int: representing the number of days it should exist
+	timeCreated: "2016-05-18T16:00:00Z", // date UTC representation
+	isExpired: false, // boolean: represents if the entity is expired
+	rating: null, // int: a rating out of 5, will be NULL for entityTypes that aren't RATINGS
+	upVotes: 100, // int: tracks the number of upVotes
+	downVotes: 10, // int: tracks the number of downVotes 
+	options: [
+		'A': 'Excellent!', // options is an array referring to the choices for a POLL, other entities will have an empty OPTIONS array
+		'B': 'Very Good!',
+		'C': 'Okay!',
+		'D': 'They suck!'
+	],
+	responses: [
+		{
+			responseId: 0, // integer, the response's ID in our database
+			responseType: "POLL_RESPONSE", // string: "POLL_RESPONSE", "REVIEW_RESPONSE", "QUESTION_RESPONSE", "COMMENT"
+			owner: "kennytnguyen", // string: user's username who responded to the entity
+			response: "B. Very good!" // string: can be a comment, answer to a poll, answr to a question, a review
+		},
+		{
+			responseId: 1, // integer, the response's ID in our database
+			responseType: "COMMENT", // string: "POLL_RESPONSE", "REVIEW_RESPONSE", "QUESTION_RESPONSE", "COMMENT"
+			owner: "ethanc", // string: user's username who responded to the entity
+			response: "Great question Kenny!" // string: can be a comment, answer to a poll, answr to a question, a review
+		},
+	]
+}
+
+
+// BACKEND API's representation of an entity's response
+{
+	responseId: 0, // integer, the response's ID in our database
+	responseType: "POLL_RESPONSE", // string: "POLL_RESPONSE", "REVIEW_RESPONSE", "QUESTION_RESPONSE", "COMMENT"
+	owner: "kennytnguyen", // string: user's username who responded to the entity
+	response: "B. Very good!" // string: can be a comment, answer to a poll, answr to a question, a review
+}
